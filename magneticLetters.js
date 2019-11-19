@@ -64,7 +64,7 @@ function setup(){
 
 	for(var i = 0; i < 2; i++){
 		for(var j = 0; j < 13; j++){
-			keys.push(new key(width/4+tileSize*j+10*j,i*(height/10)+boxHeight+150, tileSize, String.fromCharCode(97+(i*13)+j)));
+			keys.push(new key(width/4+tileSize*j+10*j+10,i*(height/10)+boxHeight+150, tileSize, String.fromCharCode(97+(i*13)+j)));
 		}
 	}
 
@@ -101,17 +101,17 @@ function draw(){
 function mousePressed(){
 	for(var i = 0; i < keys.length; i++){
 		if(mouseX < keys[i].x+keys[i].size && mouseX > keys[i].x && mouseY < keys[i].y + keys[i].size && mouseY > keys[i].y){
-			if(currentLetters.length >= 70){
+			if(currentLetters.length >= 60){
 				console.log("Can't place anymore letters!");
 				return;
 			}
-			var x = currentLetters.length % 10;
-			var y = Math.floor(currentLetters.length / 10);
-			currentLetters.push(new Letter(width/4+x*60, 170+y*60, keys[i].l));
+			var x = currentLetters.length % 12;
+			var y = Math.floor(currentLetters.length / 12);
+			currentLetters.push(new Letter(width/4+x*70, 170+y*60, keys[i].l));
 		}
 	}
 	for(var i = 0; i < currentLetters.length; i++){
-		if(mouseX < currentLetters[i].x + 60 && mouseX > currentLetters[i].x && mouseY < currentLetters[i].y + 60 && mouseY> currentLetters[i].y){
+		if(mouseX < currentLetters[i].x + 70 && mouseX > currentLetters[i].x && mouseY < currentLetters[i].y + 60 && mouseY> currentLetters[i].y){
 			currentLetters[i].active = true;
 		}
 		else{
