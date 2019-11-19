@@ -107,7 +107,7 @@ function mousePressed(){
 			}
 			var x = currentLetters.length % 12;
 			var y = Math.floor(currentLetters.length / 12);
-			currentLetters.push(new Letter(width/4+x*70, 170+y*60, keys[i].l));
+			currentLetters.push(new Letter(width/4+x*70, 170+y*70, keys[i].l));
 		}
 	}
 	for(var i = 0; i < currentLetters.length; i++){
