@@ -64,7 +64,7 @@ function setup(){
 
 	for(var i = 0; i < 2; i++){
 		for(var j = 0; j < 13; j++){
-			keys.push(new key(width/4+tileSize*j+10*j,i*(height/10)+boxHeight+50, tileSize, String.fromCharCode(97+(i*13)+j)));
+			keys.push(new key(width/4+tileSize*j+10*j,i*(height/10)+boxHeight+150, tileSize, String.fromCharCode(97+(i*13)+j)));
 		}
 	}
 
@@ -75,13 +75,14 @@ function setup(){
 
 function draw(){
 	clear();
-	mybgn.resize(2*width/3,2*height/3);
+	mybgn.resize(2*width/3,4*height/5);
 	image(mybgn, width/4-90, 0);
-	fill(200,198,220);
+	//fill(200,198,220);
+	noFill();
 	boxWidth = 11*width/20;
-	boxHeight = height/3;
+	boxHeight = height/2;
 	tileSize = boxWidth/13-6;
-	rect(width/4, 150, boxWidth,boxHeight);
+	rect(width/4, 170, boxWidth,boxHeight);
 
 	for(var i = 0; i < currentLetters.length; i++){
 		currentLetters[i].show();
@@ -91,10 +92,10 @@ function draw(){
 	}
 
 	fill('red');
-	ellipse(width/2,4*(height/13)+boxHeight, 50,50);
+	ellipse(width/2,4*(height/13)+boxHeight-25, 50,50);
 	fill(255);
 	textSize(36);
-	text('X',width/2-12,4*(height/13)+boxHeight-25);
+	text('X',width/2-12,4*(height/13)+boxHeight-50);
 }
 
 function mousePressed(){
@@ -106,7 +107,7 @@ function mousePressed(){
 			}
 			var x = currentLetters.length % 10;
 			var y = Math.floor(currentLetters.length / 10);
-			currentLetters.push(new Letter(width/4+x*60, 140+y*60, keys[i].l));
+			currentLetters.push(new Letter(width/4+x*60, 170+y*60, keys[i].l));
 		}
 	}
 	for(var i = 0; i < currentLetters.length; i++){
