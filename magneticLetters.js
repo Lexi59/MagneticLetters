@@ -64,7 +64,7 @@ function setup(){
 
 	for(var i = 0; i < 2; i++){
 		for(var j = 0; j < 13; j++){
-			keys.push(new key(width/4+tileSize*j+6*j,i*(height/10)+boxHeight+50, tileSize, String.fromCharCode(97+(i*13)+j)));
+			keys.push(new key(width/4+tileSize*j+10*j,i*(height/10)+boxHeight+50, tileSize, String.fromCharCode(97+(i*13)+j)));
 		}
 	}
 
@@ -76,7 +76,7 @@ function setup(){
 function draw(){
 	clear();
 	mybgn.resize(2*width/3,2*height/3);
-	image(mybgn, width/4-60, 0);
+	image(mybgn, width/4-90, 0);
 	fill(200,198,220);
 	boxWidth = 11*width/20;
 	boxHeight = height/3;
