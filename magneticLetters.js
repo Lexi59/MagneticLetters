@@ -118,7 +118,7 @@ function mousePressed(){
 			currentLetters[i].active = false;
 		}
 	}
-	if(mouseX <width/2-12 + 25 && mouseX >width/2-12 - 25 && mouseY < 4*(height/13)+boxHeight + 25 && mouseY > 4*(height/13)+boxHeight -25){
+	if(mouseX <width/2 + 25 && mouseX >width/2 - 25 && mouseY < 4*(height/13)+boxHeight && mouseY > 4*(height/13)+boxHeight -75){
 		currentLetters = new Array();
 	}
 }
