@@ -1,11 +1,11 @@
 let keys = new Array();
 var currentLetters = new Array();
-var myFont;
+var myFont, mybgn;
 var boxWidth, boxHeight, tileSize;
 
 function preload(){
 	myFont = loadFont('KGMissKindergarten.ttf');
-	//myFont = loadImage('bkgrnd.png');
+	mybgn = loadImage('bkgrnd.png');
 }
 
 class Letter{
@@ -44,8 +44,6 @@ class key{
 	}
 	show(){
 		stroke(0);
-		fill(255);
-	//rect(this.x,this.y,this.size, this.size);
 		fill(this.fill);
 		textSize(45);
 		text(this.l, this.x, this.y)
@@ -57,7 +55,6 @@ function setup(){
 	background(240,240,240);
 	textAlign(LEFT, TOP);
 	textFont(myFont);
-
 
 	fill(200,198,220);
 	boxWidth = width/2;
@@ -78,11 +75,13 @@ function setup(){
 
 function draw(){
 	clear();
+	mybgn.resize(2*width/3,2*height/3);
+	image(mybgn, width/4-60, 0);
 	fill(200,198,220);
-	boxWidth = width/2;
-	boxHeight = (3*height)/5;
+	boxWidth = 11*width/20;
+	boxHeight = height/3;
 	tileSize = boxWidth/13-6;
-	rect(width/4, 25, boxWidth,boxHeight);
+	rect(width/4, 150, boxWidth,boxHeight);
 
 	for(var i = 0; i < currentLetters.length; i++){
 		currentLetters[i].show();
@@ -107,7 +106,7 @@ function mousePressed(){
 			}
 			var x = currentLetters.length % 10;
 			var y = Math.floor(currentLetters.length / 10);
-			currentLetters.push(new Letter(width/4+x*60, 25+y*60, keys[i].l));
+			currentLetters.push(new Letter(width/4+x*60, 140+y*60, keys[i].l));
 		}
 	}
 	for(var i = 0; i < currentLetters.length; i++){
@@ -128,7 +127,7 @@ function mouseDragged(){
 		if(currentLetters[i].active){
 			currentLetters[i].x = mouseX;
 			currentLetters[i].y = mouseY;
-			if(currentLetters[i].x < width/4 || currentLetters[i].x > width/4 + boxWidth || currentLetters[i].y > boxHeight || currentLetters[i].y < 25){
+			if(currentLetters[i].x < width/4 || currentLetters[i].x > width/4 + boxWidth || currentLetters[i].y > boxHeight + 150 || currentLetters[i].y < 140){
 				currentLetters.splice(i,1);
 			}
 			break;
