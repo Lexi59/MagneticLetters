@@ -102,7 +102,7 @@ function draw(){
 	text('X',width/2,4*(height/13)+boxHeight-30);
 }
 
-function mouseDragged(){
+function touchStarted(){
 	console.log(mouseX + ","+ mouseY);
 	for(var i = 0; i < currentLetters.length; i++){
 		if(mouseX < currentLetters[i].x + 35 && mouseX > currentLetters[i].x -35 && mouseY < currentLetters[i].y + 60 && mouseY> currentLetters[i].y-25){
@@ -112,6 +112,9 @@ function mouseDragged(){
 			currentLetters[i].active = false;
 		}
 	}
+}
+
+function mouseDragged(){
 	for(var i = 0; i < currentLetters.length; i++){
 		if(currentLetters[i].active){
 			currentLetters[i].x = mouseX;
@@ -123,7 +126,7 @@ function mouseDragged(){
 		}
 	}
 }
-function mousePressed(){
+function mouseReleased(){
 	if(mouseX <width/2 + 25 && mouseX >width/2 - 25 && mouseY < 4*(height/13)+boxHeight && mouseY > 4*(height/13)+boxHeight -75){
 		currentLetters = new Array();
 	}
