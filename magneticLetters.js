@@ -102,7 +102,7 @@ function draw(){
 	text('X',width/2,4*(height/13)+boxHeight-30);
 }
 
-function mouseClicked(){
+function mouseDragged(){
 	console.log(mouseX + ","+ mouseY);
 	for(var i = 0; i < currentLetters.length; i++){
 		if(mouseX < currentLetters[i].x + 35 && mouseX > currentLetters[i].x -35 && mouseY < currentLetters[i].y + 60 && mouseY> currentLetters[i].y-25){
@@ -112,9 +112,6 @@ function mouseClicked(){
 			currentLetters[i].active = false;
 		}
 	}
-}
-
-function mouseDragged(){
 	for(var i = 0; i < currentLetters.length; i++){
 		if(currentLetters[i].active){
 			currentLetters[i].x = mouseX;
