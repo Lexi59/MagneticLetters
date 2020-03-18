@@ -102,7 +102,7 @@ function draw(){
 	text('X',width/2,4*(height/13)+boxHeight-30);
 }
 
-function mousePressed(){
+function touchStarted(){
 	console.log(mouseX + ","+ mouseY);
 	for(var i = 0; i < currentLetters.length; i++){
 		if(mouseX < currentLetters[i].x + 35 && mouseX > currentLetters[i].x -35 && mouseY < currentLetters[i].y + 60 && mouseY> currentLetters[i].y-25){
@@ -110,20 +110,6 @@ function mousePressed(){
 		}
 		else{
 			currentLetters[i].active = false;
-		}
-	}
-	if(mouseX <width/2 + 25 && mouseX >width/2 - 25 && mouseY < 4*(height/13)+boxHeight && mouseY > 4*(height/13)+boxHeight -75){
-		currentLetters = new Array();
-	}
-	for(var i = 0; i < keys.length; i++){
-		if(mouseX < keys[i].x-20 +keys[i].size && mouseX > keys[i].x - 20 && mouseY < keys[i].y -30 + keys[i].size && mouseY > keys[i].y - 30){
-			if(currentLetters.length >= 60){
-				console.log("Can't place anymore letters!");
-				return;
-			}
-			var x = currentLetters.length % 12;
-			var y = Math.floor(currentLetters.length / 12);
-			currentLetters.push(new Letter(width/4+x*70, 170+y*70, keys[i].l));
 		}
 	}
 }
@@ -140,6 +126,19 @@ function mouseDragged(){
 		}
 	}
 }
-function touchStarted(){
-
+function mouseReleased(){
+	if(mouseX <width/2 + 25 && mouseX >width/2 - 25 && mouseY < 4*(height/13)+boxHeight && mouseY > 4*(height/13)+boxHeight -75){
+		currentLetters = new Array();
+	}
+	for(var i = 0; i < keys.length; i++){
+		if(mouseX < keys[i].x-20 +keys[i].size && mouseX > keys[i].x - 20 && mouseY < keys[i].y -30 + keys[i].size && mouseY > keys[i].y - 30){
+			if(currentLetters.length >= 60){
+				console.log("Can't place anymore letters!");
+				return;
+			}
+			var x = currentLetters.length % 12;
+			var y = Math.floor(currentLetters.length / 12);
+			currentLetters.push(new Letter(width/4+x*70, 170+y*70, keys[i].l));
+		}
+	}
 }
