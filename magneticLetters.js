@@ -101,18 +101,6 @@ function draw(){
 	textSize(36);
 	text('X',width/2,4*(height/13)+boxHeight-30);
 }
-function mouseReleased(){
-	console.log("mouse released");
-}
-function touchEnded(){
-	console.log("Touch ended");
-}
-function doubleClicked(){
-	console.log("Double Clicked");
-}
-function mouseClicked(){
-	console.log("mouse clicked");
-}
 
 function mousePressed(){
 	console.log(mouseX + ","+ mouseY);
