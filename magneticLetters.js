@@ -138,7 +138,10 @@ function mouseReleased(){
 			}
 			var x = currentLetters.length % 12;
 			var y = Math.floor(currentLetters.length / 12);
+			if(currentLetters[currentLetters.length-1]==keys[i].l){return;}
+			else{
 			currentLetters.push(new Letter(width/4+x*70, 170+y*70, keys[i].l));
+			}
 		}
 	}
 }
