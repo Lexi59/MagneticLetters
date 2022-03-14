@@ -16,7 +16,7 @@ body{
 }
 #board {
     position: relative;
-    top: -28vw;
+    top: -25vw;
     width: 80%;
     margin:auto;
     z-index: 1;
