@@ -56,7 +56,6 @@ function erase(){
 }
 
 function deleteElement(e){
-  totalOffset -= e.offsetWidth;
   e.remove();
 }
 
