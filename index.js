@@ -57,6 +57,7 @@ function erase(){
 
 function deleteElement(e){
   e.remove();
+  if(document.getElementsByClassName('letter').length == 0){nextAvailID = 0;}
 }
 
 // Make the DIV element draggable:
