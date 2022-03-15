@@ -4,9 +4,6 @@ var letters = "abcdefghijklmnopqrstuvwxyz";
 var board = document.getElementById("board");
 var bkgnd = document.getElementById('bkgrnd');
 var nextAvailID = 0;
-var totalOffset = 0;
-var totalTopOffset = 0;
-//var pos1 = 0, pos2 = 0, pos3 = 0, pos4 = 0;
 
 //add letters to the bottom of the page
 var letterSection = document.querySelector("#letters");
@@ -38,16 +35,12 @@ class BoardLetter{
     }
     dragElement(div);
     board.appendChild(div); 
-    // totalOffset += div.offsetWidth;
-    // while(totalOffset+div.offsetWidth > window.innerWidth *0.40){totalOffset -= (window.innerWidth*0.4); totalTopOffset += 50;}
-    // div.style.left = (div.offsetLeft + totalOffset) + 'px';
-    // div.style.top = (div.offsetTop + totalTopOffset) + 'px';
+
     var numLetters = document.getElementsByClassName('letter').length -1;
     var letterWidth = (bkgnd.offsetWidth/10)
     var top = 0;
     var left = nextAvailID * letterWidth;
     while(left + letterWidth > bkgnd.offsetWidth * 0.8){left -= bkgnd.offsetWidth * 0.8; top += letterWidth;}
-    console.log(numLetters, letterWidth, top, left, numLetters*letterWidth, bkgnd.offsetWidth)
     div.style.left = (div.offsetLeft +left) + 'px';
     div.style.top = (div.offsetTop +top) + 'px';
     nextAvailID++;
@@ -59,8 +52,7 @@ function erase(){
   for(var i = letters.length-1; i >= 0; i--){
     deleteElement(letters[i]);
   }
-  totalOffset = 0;
-  totalTopOffset = 0;
+  nextAvailID= 0;
 }
 
 function deleteElement(e){
